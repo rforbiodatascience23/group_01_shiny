@@ -10,7 +10,12 @@
 
 mod_Plotting_module_ui <- function(id){
   ns <- NS(id)
-  tagList()
+  tagList(tabsetPanel(
+    tabPanel(title = "Peptide Sequence",
+             "hey"),
+    tabPanel(title = "Plots",
+             "module2")
+  ))
 }
 
 #' Plotting module Server Functions
