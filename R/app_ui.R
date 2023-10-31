@@ -8,7 +8,7 @@ app_ui <- function(request) {
   tagList(
     # Leave this function for adding external resources
     golem_add_external_resources(),
-    # Your application UI logic
+    mod_Plotting_module_ui("Plotting module_1"),
     fluidPage(
       h1("Group 01 Shiny App"),
       tabsetPanel(

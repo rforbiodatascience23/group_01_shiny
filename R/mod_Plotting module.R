@@ -9,8 +9,14 @@
 #' @importFrom shiny NS tagList
 mod_Plotting_module_ui <- function(id){
   ns <- NS(id)
-  tagList(
-
+  tagList(sidebarLayout(
+    sidebarPanel(
+      "peptide_sequence"
+    ),
+    mainPanel(
+      "plot"
+    )
+  )
   )
 }
 
@@ -25,7 +31,7 @@ mod_Plotting_module_server <- function(id){
 }
 
 ## To be copied in the UI
-# mod_Plotting module_ui("Plotting module_1")
+# mod_Plotting_module_ui("Plotting module_1")
 
 ## To be copied in the server
-# mod_Plotting module_server("Plotting module_1")
+# mod_Plotting_module_server("Plotting module_1")
