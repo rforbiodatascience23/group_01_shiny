@@ -9,12 +9,12 @@ app_ui <- function(request) {
     # Leave this function for adding external resources
     golem_add_external_resources(),
     mod_Plotting_module_ui("Plotting module_1"),
-    fluidPage(
+    fluidPage(fluidPage(
       h1("Group 01 Shiny App"),
       shiny::tabPanel("Peptide Sequence",
                       mod_Plotting_module_ui("dna_expression_1")
         )
-    )
+    ))
     )
 }
 
