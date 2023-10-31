@@ -10,14 +10,26 @@
 
 mod_Plotting_module_ui <- function(id){
   ns <- NS(id)
-  tagList(sidebarLayout(
-    sidebarPanel(
-      "peptide_sequence"
+  tagList(
+    fluidRow(
+      column(8, shiny::uiOutput(ns("DNA"))),
+      column(4, shiny::numericInput(
+        inputId = ns("dna_length"),
+        value = 6000,
+        min = 3,
+        max = 100000,
+        step = 3,
+        label = "Random DNA length"
+      ),
+      shiny::actionButton(
+        inputId = ns("generate_dna"),
+        label = "Generate random DNA", style = "margin-top: 18px;"
+      ))
     ),
-    mainPanel(
-      "plot"
-    )
-  ))
+    shiny::verbatimTextOutput(outputId = ns("peptide")) |>
+      shiny::tagAppendAttributes(style = "white-space: pre-wrap;")
+
+  )
 }
 
 #' Plotting module Server Functions
