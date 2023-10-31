@@ -20,8 +20,8 @@ attachment::att_amend_desc()
 
 ## Add modules ----
 ## Create a module infrastructure in R/
-golem::add_module(name = "module_1", with_test = TRUE) # Name of the module
-golem::add_module(name = "module_2", with_test = TRUE) # Name of the module
+golem::add_module(name = "module_1", with_test = FALSE) # Name of the module
+golem::add_module(name = "Plotting module", with_test = FALSE) # Name of the module
 
 ## Add helper functions ----
 ## Creates fct_* and utils_*
@@ -78,7 +78,7 @@ usethis::use_travis()
 usethis::use_travis_badge()
 
 # AppVeyor
-usethis::use_appveyor()
+usethis::use_appveyor()data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAWElEQVR42mNgGPTAxsZmJsVqQApgmGw1yApwKcQiT7phRBuCzzCSDSHGMKINIeDNmWQlA2IigKJwIssQkHdINgxfmBBtGDEBS3KCxBc7pMQgMYE5c/AXPwAwSX4lV3pTWwAAAABJRU5ErkJggg==
 usethis::use_appveyor_badge()
 
 # Circle CI
