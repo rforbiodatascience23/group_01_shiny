@@ -19,6 +19,10 @@ mod_Plotting_module_ui <- function(id){
           width = 300,
           height = 100,
           placeholder = "Insert peptide sequence"
+        ),
+        shiny::actionButton(
+          inputId = ns("generate_dna"),
+          label = "Generate random DNA", style = "margin-top: 18px;"
         )
       ),
       shiny::mainPanel(
