@@ -8,7 +8,7 @@
 #'
 #' @importFrom shiny NS tagList
 
-mod_plotting_module_ui <- function(id){
+mod_Plotting_module_ui <- function(id){
   ns <- NS(id)
   tagList(
     shiny::sidebarLayout(
