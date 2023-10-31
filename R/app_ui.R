@@ -5,7 +5,12 @@
 #' @import shiny
 #' @noRd
 app_ui <- function(request) {
-  tagList(
+  tagList(h1("Group 01 Shiny App"),
+          tabsetPanel(
+            tabPanel(title = "Peptide Sequence",
+                     "hey"),
+            tabPanel(title = "Plots",
+                     "module2")),
     # Leave this function for adding external resources
     golem_add_external_resources(),
     mod_Plotting_module_ui("Plotting module_1"),
