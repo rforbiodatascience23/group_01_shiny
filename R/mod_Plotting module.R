@@ -7,11 +7,19 @@
 #' @noRd
 #'
 #' @importFrom shiny NS tagList
+
 mod_Plotting_module_ui <- function(id){
   ns <- NS(id)
   tagList(sidebarLayout(
     sidebarPanel(
-      "peptide_sequence"
+      "peptide_sequence",
+      textAreaInput(
+        inputId = ns("peptide"),
+        label = "Peptide sequence",
+        width = 300,
+        height = 100,
+        placeholder = "Insert peptide sequence"
+      )
     ),
     mainPanel(
       "plot"
@@ -26,7 +34,6 @@ mod_Plotting_module_ui <- function(id){
 mod_Plotting_module_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
-
   })
 }
 
