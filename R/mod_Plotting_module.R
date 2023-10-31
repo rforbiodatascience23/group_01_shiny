@@ -37,6 +37,15 @@ mod_plotting_module_ui <- function(id){
 mod_Plotting_module_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
+    output$abundance <- renderPlot({
+      if(input$peptide == ""){
+        NULL
+      } else{
+        input$peptide |>
+          yourpackage::plot_by_aminoacid_count() +
+          ggplot2::theme(legend.position = "none")
+      }
+    })
   })
 }
 
