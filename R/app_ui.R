@@ -13,7 +13,7 @@ app_ui <- function(request) {
     fluidPage(
       h1("Group 01 Shiny App"),
       shiny::tabsetPanel(
-        shiny::tabPanel("Peptide Sequence",
+        shiny::tabPanel("Plot the aminoacid count",
                         mod_Plotting_module_ui("dna_expression_1")
         )))
     )

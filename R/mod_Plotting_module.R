@@ -7,6 +7,8 @@
 #' @noRd
 #'
 #' @importFrom shiny NS tagList
+#' @importfrom ggplot2 theme
+#' @import plot_by_aminoacid_count
 
 mod_Plotting_module_ui <- function(id){
   ns <- NS(id)
