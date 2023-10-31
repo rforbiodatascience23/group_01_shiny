@@ -10,7 +10,13 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     # Your application UI logic
     fluidPage(
-      h1("group01DNAbuilder")
+      h1("Group 01 Shiny App"),
+      tabsetPanel(
+        tabPanel(title = "panel1",
+                 "module1"),
+        tabPanel(title = "panel2",
+                 "module2")
+      )
     )
   )
 }
@@ -39,3 +45,5 @@ golem_add_external_resources <- function() {
     # for example, you can add shinyalert::useShinyalert()
   )
 }
+
+
