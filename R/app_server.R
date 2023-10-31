@@ -4,6 +4,8 @@
 #'     DO NOT REMOVE.
 #' @import shiny
 #' @noRd
+
 app_server <- function(input, output, session) {
-  # Your application server logic
+   mod_Plotting_module_server("Plotting module_1")
 }
+
