@@ -8,27 +8,26 @@
 #'
 #' @importFrom shiny NS tagList
 
-mod_Plotting_module_ui <- function(id){
+mod_plotting_module_ui <- function(id){
   ns <- NS(id)
   tagList(
-    fluidRow(
-      column(8, shiny::uiOutput(ns("DNA"))),
-      column(4, shiny::numericInput(
-        inputId = ns("dna_length"),
-        value = 6000,
-        min = 3,
-        max = 100000,
-        step = 3,
-        label = "Random DNA length"
+    shiny::sidebarLayout(
+      shiny::sidebarPanel(
+        shiny::textAreaInput(
+          inputId = ns("peptide"),
+          label = "Peptide sequence",
+          width = 300,
+          height = 100,
+          placeholder = "Insert peptide sequence"
+        )
       ),
-      shiny::actionButton(
-        inputId = ns("generate_dna"),
-        label = "Generate random DNA", style = "margin-top: 18px;"
-      ))
-    ),
-    shiny::verbatimTextOutput(outputId = ns("peptide")) |>
-      shiny::tagAppendAttributes(style = "white-space: pre-wrap;")
+      shiny::mainPanel(
+        shiny::plotOutput(
+          outputId = ns("abundance")
+        )
 
+      )
+    )
   )
 }
 
