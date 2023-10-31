@@ -10,12 +10,13 @@
 
 mod_Plotting_module_ui <- function(id){
   ns <- NS(id)
-  tagList(h1("Group 01 Shiny App"),
-          tabsetPanel(
-            tabPanel(title = "Peptide Sequence",
-             "hey"),
-            tabPanel(title = "Plots",
-             "module2")
+  tagList(sidebarLayout(
+    sidebarPanel(
+      "peptide_sequence"
+    ),
+    mainPanel(
+      "plot"
+    )
   ))
 }
 
