@@ -2,11 +2,27 @@ Package: group01DNAbuilder
 Title: An Amazing Shiny App
 Version: 0.0.0.9000
 Authors@R: 
+    c(person(given = "Quim",
+           family = "Bech",
+           role = c("aut", "cre"), # There must be a "cre", but there can only be one
+           email = "s233374@dtu.dk"), 
     person(given = "firstname",
            family = "lastname",
-           role = c("aut", "cre"),
-           email = "your@email.com")
-Description: What the package does (one paragraph).
+           role = "aut",
+           email = "your@email.com"),
+    person(given = "firstname",
+           family = "lastname",
+           role = "aut",
+           email = "your@email.com"),
+    person(given = "firstname",
+           family = "lastname",
+           role = "aut",
+           email = "your@email.com"),
+    person(given = "firstname",
+           family = "lastname",
+           role = "aut",
+           email = "your@email.com"))
+Description: That's a package to develop a Shiny App for a group project.
 License: What license is it under?
 Imports: 
     config (>= 0.3.1),
