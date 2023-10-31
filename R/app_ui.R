@@ -13,15 +13,7 @@ app_ui <- function(request) {
       h1("Group 01 Shiny App"),
       tabsetPanel(
         tabPanel(title = "Peptide Sequence",
-                 textAreaInput(
-                   inputId = ns("peptide"),
-                   label = "Peptide sequence",
-                   width = 300,
-                   height = 100,
-                   placeholder = "Insert peptide sequence"
-                 )
-
-        ),
+                 "hey"),
         tabPanel(title = "Plots",
                  "module2")
       )
