@@ -12,9 +12,9 @@ app_ui <- function(request) {
     fluidPage(
       h1("Group 01 Shiny App"),
       tabsetPanel(
-        tabPanel(title = "panel1",
+        tabPanel(title = "Peptide Sequence",
                  "module1"),
-        tabPanel(title = "panel2",
+        tabPanel(title = "Plots",
                  "module2")
       )
     )
