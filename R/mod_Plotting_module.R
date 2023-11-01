@@ -40,39 +40,20 @@ mod_Plotting_module_ui <- function(id){
 #' Plotting module Server Functions
 #'
 #' @noRd
-mod_Plotting_module_server <- function(id) {
-  moduleServer(id, function(input, output, session) {
+mod_Plotting_module_server <- function(id){
+  moduleServer(id, function(input, output, session){
     ns <- session$ns
-
-    observe({
-      if (input$peptide == "") {
-        output$abundance <- renderPlot(NULL)
-      } else {
-        plot_data <- group01package::plot_by_aminoacid_count(input$peptide)
-
-        output$abundance <- renderPlot({
-          ggplot2::ggplot(data = plot_data) +
-            # Add your plot specifications here
-            ggplot2::theme(legend.position = "none")
-        })
+    output$abundance <- renderPlot({
+      if(input$peptide == ""){
+        NULL
+      } else{
+        input$peptide |>
+          group01package::plot_by_aminoacid_count() +
+          ggplot2::theme(legend.position = "none")
       }
     })
   })
 }
-#mod_Plotting_module_server <- function(id){
- # moduleServer(id, function(input, output, session){
-  #  ns <- session$ns
-   # output$abundance <- renderPlot({
-    #  if(input$peptide == ""){
-     #   NULL
-      #} else{
-      #  input$peptide |>
-       #   group01package::plot_by_aminoacid_count() +
-        #  ggplot2::theme(legend.position = "none")
-      #}
-    #})
-  #})
-#}
 
 ## To be copied in the UI
 # mod_Plotting_module_ui("Plotting module_1")
