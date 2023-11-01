@@ -37,7 +37,25 @@ mod_GenerateSequence_ui <- function(id){
 mod_GenerateSequence_server <- function(id){
   moduleServer(id, function(input, output, session){
     ns <- session$ns
-    output$abundance <- renderText({
+    dna <- reactiveVal()
+
+    output$DNA <- renderUI({
+      shiny::textAreaInput(
+        inputId = ns("DNA"),
+        label = "DNA sequence",
+        placeholder = "Insert DNA sequence",
+        value = dna(),
+        height = 100,
+        width = 600
+      )
+    })
+    observeEvent(input$generate_dna, {
+      dna(
+        group01package::dna_builder(input$dna_length)
+      )
+    })
+
+    output$peptide <- renderText({
       # Ensure input is not NULL and is longer than 2 characters
       if(is.null(input$DNA)){
         NULL
