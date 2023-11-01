@@ -42,7 +42,7 @@ mod_GenerateSequence_server <- function(id){
     output$DNA <- renderUI({
       shiny::textAreaInput(
         inputId = ns("DNA"),
-        label = "Write a DNA Sequence",
+        label = "DNA Sequence",
         placeholder = "Insert DNA sequence",
         value = dna(),
         height = 100,
