@@ -21,10 +21,6 @@ mod_Plotting_module_ui <- function(id){
           width = 300,
           height = 100,
           placeholder = "Insert peptide sequence"
-        ),
-        shiny::actionButton(
-          inputId = ns("peptide"),
-          label = "Plot", style = "margin-top: 18px;"
         )
       ),
       shiny::mainPanel(
@@ -54,7 +50,6 @@ mod_Plotting_module_server <- function(id){
     })
   })
 }
-
 ## To be copied in the UI
 # mod_Plotting_module_ui("Plotting module_1")
 
