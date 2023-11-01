@@ -14,9 +14,9 @@ app_ui <- function(request) {
       h1("Group 01 Shiny App"),
       shiny::tabsetPanel(
         shiny::tabPanel("Create a peptide sequence",
-                        "Hey"),
+                        mod_GenerateSequence_ui("GenerateSequence_1")),
         shiny::tabPanel("Plot the aminoacid count",
-                        mod_Plotting_module_ui("dna_expression_1"))
+                        mod_Plotting_module_ui("Plotting module_1"))
         )
       )
     )
