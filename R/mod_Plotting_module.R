@@ -7,8 +7,8 @@
 #' @noRd
 #'
 #' @importFrom shiny NS tagList
-#' @importfrom ggplot2 theme
-#' @import plot_by_aminoacid_count
+#' @importFrom ggplot2 theme
+#' @import group01package
 
 mod_Plotting_module_ui <- function(id){
   ns <- NS(id)
@@ -23,7 +23,7 @@ mod_Plotting_module_ui <- function(id){
           placeholder = "Insert peptide sequence"
         ),
         shiny::actionButton(
-          inputId = ns("Plot_aminoacid"),
+          inputId = ns("peptide"),
           label = "Plot", style = "margin-top: 18px;"
         )
       ),
@@ -41,14 +41,14 @@ mod_Plotting_module_ui <- function(id){
 #'
 #' @noRd
 mod_Plotting_module_server <- function(id){
-  moduleServer( id, function(input, output, session){
+  moduleServer(id, function(input, output, session){
     ns <- session$ns
     output$abundance <- renderPlot({
       if(input$peptide == ""){
         NULL
       } else{
         input$peptide |>
-          yourpackage::plot_by_aminoacid_count() +
+          group01package::plot_by_aminoacid_count() +
           ggplot2::theme(legend.position = "none")
       }
     })
