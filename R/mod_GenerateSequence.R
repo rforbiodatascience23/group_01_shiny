@@ -27,7 +27,6 @@ mod_GenerateSequence_ui <- function(id){
     ),
     shiny::verbatimTextOutput(outputId = ns("peptide_sequence")) |>
       shiny::tagAppendAttributes(style = "white-space: pre-wrap;")
-
   )
 }
 
