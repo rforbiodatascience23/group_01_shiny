@@ -13,7 +13,7 @@ mod_GenerateSequence_ui <- function(id){
     fluidRow(
       column(8, shiny::uiOutput(ns("DNA"))),
       column(4, shiny::numericInput(
-        inputId = ns("dna_length"),
+        inputId = ns("nucleotide_number"),
         value = 6000,
         min = 3,
         max = 100000,
@@ -21,11 +21,11 @@ mod_GenerateSequence_ui <- function(id){
         label = "Random DNA length"
       ),
       shiny::actionButton(
-        inputId = ns("generate_dna"),
+        inputId = ns("create_dna"),
         label = "Generate random DNA", style = "margin-top: 18px;"
       ))
     ),
-    shiny::verbatimTextOutput(outputId = ns("peptide")) |>
+    shiny::verbatimTextOutput(outputId = ns("peptide_sequence")) |>
       shiny::tagAppendAttributes(style = "white-space: pre-wrap;")
 
   )
@@ -42,20 +42,20 @@ mod_GenerateSequence_server <- function(id){
     output$DNA <- renderUI({
       shiny::textAreaInput(
         inputId = ns("DNA"),
-        label = "DNA sequence",
+        label = "Write a DNA Sequence",
         placeholder = "Insert DNA sequence",
         value = dna(),
         height = 100,
         width = 600
       )
     })
-    observeEvent(input$generate_dna, {
+    observeEvent(input$create_dna, {
       dna(
-        group01package::dna_builder(input$dna_length)
+        group01package::dna_builder(input$nucleotide_number)
       )
     })
 
-    output$peptide <- renderText({
+    output$peptide_sequence <- renderText({
       # Ensure input is not NULL and is longer than 2 characters
       if(is.null(input$DNA)){
         NULL
