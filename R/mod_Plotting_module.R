@@ -16,7 +16,7 @@ mod_Plotting_module_ui <- function(id){
     shiny::sidebarLayout(
       shiny::sidebarPanel(
         shiny::textAreaInput(
-          inputId = ns("peptide"),
+          inputId = ns("peptide_sequence"),
           label = "Peptide sequence",
           width = 300,
           height = 100,
@@ -25,7 +25,7 @@ mod_Plotting_module_ui <- function(id){
       ),
       shiny::mainPanel(
         shiny::plotOutput(
-          outputId = ns("abundance")
+          outputId = ns("amount_aa")
         )
 
       )
@@ -39,11 +39,11 @@ mod_Plotting_module_ui <- function(id){
 mod_Plotting_module_server <- function(id){
   moduleServer(id, function(input, output, session){
     ns <- session$ns
-    output$abundance <- renderPlot({
-      if(input$peptide == ""){
+    output$amount_aa <- renderPlot({
+      if(input$peptide_sequence == ""){
         NULL
       } else{
-        input$peptide |>
+        input$peptide_sequence |>
           group01package::plot_by_aminoacid_count() +
           ggplot2::theme(legend.position = "none")
       }
